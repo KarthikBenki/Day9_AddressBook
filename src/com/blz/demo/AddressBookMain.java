@@ -14,7 +14,7 @@ public class AddressBookMain {
 
     // add new person record to array list after taking input
 
-    public void addPerson() {
+    public Contacts addPerson() {
 	System.out.println("Enter the First Name");
 	String fName = scanner.next();
 	System.out.println("Enter the Last Name");
@@ -40,12 +40,35 @@ public class AddressBookMain {
 	// printing contacts object data inside
 	System.out.println(contacts);
 
+	return contacts;
+
     }// end of add person method
+
+    // Edit contact details using person name
+    public void editPerson() {
+	System.out.println("Enter name to Edit");
+	String s = scanner.next();
+	AddressBookMain ab = new AddressBookMain();
+
+	for (int i = 0; i < person.size(); i++) {
+	    Contacts p = (Contacts) person.get(i);
+	    if (s.equals(p.getFirstName())) {
+		System.out.println(p);
+		p = ab.addPerson();/// calling add person to replace
+
+		for (int j = 0; j < person.size(); j++) {
+		    person.set(j, p);
+		}
+
+	    }
+	}
+    }
 
     public static void main(String[] args) {
 	System.out.println("Welcome to Address Book Program in AddressBookMain class");
 	AddressBookMain ab = new AddressBookMain();
 	ab.addPerson();
+	ab.editPerson();
 
     }// end of main
 
