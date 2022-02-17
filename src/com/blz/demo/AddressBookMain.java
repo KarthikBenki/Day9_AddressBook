@@ -55,20 +55,35 @@ public class AddressBookMain {
 	    if (s.equals(p.getFirstName())) {
 		System.out.println(p);
 		p = ab.addPerson();/// calling add person to replace
-
-		for (int j = 0; j < person.size(); j++) {
-		    person.set(j, p);
-		}
-
+		person.set(i, p);
+		System.out.println(p);
 	    }
 	}
     }
 
+    // delete contant details using person name
+    public void deletePerson() {
+	System.out.println("Enter name to Delete");
+	String s = scanner.next();
+
+	for (int i = 0; i < person.size(); i++) {
+	    Contacts p = (Contacts) person.get(i);
+	    if (s.equals(p.getFirstName())) {
+		System.out.println(p);
+		person.remove(i);
+		System.out.println(person.isEmpty());
+	    }
+	}
+
+    }
+
+    // main program
     public static void main(String[] args) {
 	System.out.println("Welcome to Address Book Program in AddressBookMain class");
 	AddressBookMain ab = new AddressBookMain();
 	ab.addPerson();
 	ab.editPerson();
+	ab.deletePerson();
 
     }// end of main
 
