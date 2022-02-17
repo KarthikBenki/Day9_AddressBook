@@ -10,17 +10,18 @@ class Contacts {
     private String phoneNumber;
     private String email;
 
-//parameterized constructor
+    // parameterized constructor
     public Contacts(String firstName, String lastName, String address, String city, String state, String zip,
 	    String phoneNumber, String email) {
-	setFirstName(firstName);
-	setLastName(lastName);
-	setAddress(address);
-	setCity(city);
-	setState(state);
-	setZip(zip);
-	setPhoneNumber(phoneNumber);
-	setEmail(email);
+	super();
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.address = address;
+	this.city = city;
+	this.state = state;
+	this.zip = zip;
+	this.phoneNumber = phoneNumber;
+	this.email = email;
     }
 
     // getters and setters

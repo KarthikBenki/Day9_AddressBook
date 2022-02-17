@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class AddressBookMain {
     static Scanner scanner = new Scanner(System.in);
-    ArrayList<Contacts> person;
+    ArrayList<Contacts> person = new ArrayList<Contacts>();
 
     // constructor
     public AddressBookMain() {
-	person = new ArrayList<Contacts>();
+//	ArrayList<Contacts> person = new ArrayList<Contacts>();
     }
 
     // add new person record to array list after taking input
@@ -54,11 +54,25 @@ public class AddressBookMain {
 	    Contacts p = (Contacts) person.get(i);
 	    if (s.equals(p.getFirstName())) {
 		System.out.println(p);
-		p = ab.addPerson();/// calling add person to replace
+		System.out.print("choice to edit 1)firstName\n2)lastName\n3)address\n4)city\n5)state\n"
+			+ "6)zip\n7)phoneNumber\n8)email\n9)exit");
+		int choice = scanner.nextInt();
+		switch (choice) {
+		case 1 -> p.setFirstName(scanner.next());
+		case 2 -> p.setLastName(scanner.next());
+		case 3 -> p.setAddress(scanner.next());
+		case 4 -> p.setCity(scanner.next());
+		case 5 -> p.setState(scanner.next());
+		case 6 -> p.setZip(scanner.next());
+		case 7 -> p.setPhoneNumber(scanner.next());
+		case 8 -> p.setEmail(scanner.next());
+
+		}
 		person.set(i, p);
 		System.out.println(p);
 	    }
 	}
+
     }
 
     // delete contant details using person name
